@@ -1,4 +1,4 @@
-import PokemonGrid from "@/app/pokemon/_components/pokemon-grid";
+import PokemonGrid from "@/app/pokemons/_components/pokemon-grid";
 import { getPokemonList } from "@/app/_api/pokemon/get-pokemon";
 
 const PokemonList = async () => {

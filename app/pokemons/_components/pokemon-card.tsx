@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { getPokemonById } from "@/app/_api/pokemon/get-pokemon";
 import { Suspense } from "react";
-import PokemonImage from "@/app/pokemon/_components/pokemon-image";
+import PokemonImage from "@/app/pokemons/_components/pokemon-image";
 import Spinner from "@/app/components/element/spinner";
 
 interface PokemonCardProps {
@@ -16,7 +16,7 @@ const PokemonCardImage = async ({ id, name }: PokemonCardProps) => {
     ? pokemon.sprites.other["official-artwork"].front_default
     : null;
 
-  const image = pokemonImage ? pokemonImage : "pokemon-not-found.png";
+  const image = pokemonImage ? pokemonImage : "pokemons-not-found.png";
 
   return <PokemonImage image={image} name={name} />;
 };

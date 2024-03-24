@@ -1,4 +1,4 @@
-import PokemonImage from "@/app/pokemon/_components/pokemon-image";
+import PokemonImage from "@/app/pokemons/_components/pokemon-image";
 import { getPokemonById } from "@/app/_api/pokemon/get-pokemon";
 import { Progress } from "@/app/components/ui/progress";
 import { notFound } from "next/navigation";
