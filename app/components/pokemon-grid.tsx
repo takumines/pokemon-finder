@@ -5,6 +5,7 @@ import { Label } from "@/app/components/ui/label";
 import { Input } from "@/app/components/ui/input";
 import PokemonCard from "@/app/components/pokemon-card";
 import { NamedAPIResource } from "pokenode-ts";
+import { extractIdFromUrl } from "@/app/_lib/utils";
 
 const PokemonGrid = ({ pokemonList }: { pokemonList: NamedAPIResource[] }) => {
   const [searchText, setSearchText] = useState("");
@@ -32,7 +33,10 @@ const PokemonGrid = ({ pokemonList }: { pokemonList: NamedAPIResource[] }) => {
       </div>
       <div className="mb-32 grid grid-cols-3 text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
         {filteredPokemonList.map((pokemon) => {
-          return <PokemonCard name={pokemon.name} key={pokemon.name} />;
+          const id = extractIdFromUrl(pokemon.url);
+          return (
+            id && <PokemonCard id={id} name={pokemon.name} key={pokemon.name} />
+          );
         })}
       </div>
     </>

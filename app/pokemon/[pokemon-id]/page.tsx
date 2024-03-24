@@ -1,10 +1,17 @@
 import PokemonImage from "@/app/components/pokemon-image";
-import { getPokemonByName } from "@/app/_api/pokemon/get-pokemon";
+import { getPokemonById } from "@/app/_api/pokemon/get-pokemon";
 import { Progress } from "@/app/components/ui/progress";
+import { notFound } from "next/navigation";
 
-const PokemonPage = async ({ params }: { params: { pokemonName: string } }) => {
-  const { pokemonName } = params;
-  const pokemon = await getPokemonByName(pokemonName);
+const PokemonPage = async ({
+  params,
+}: {
+  params: { "pokemon-id": number };
+}) => {
+  const pokemon = await getPokemonById(params["pokemon-id"]);
+  if (!pokemon) {
+    notFound();
+  }
   const name = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
   const image = pokemon.sprites.other
     ? pokemon.sprites.other["official-artwork"].front_default

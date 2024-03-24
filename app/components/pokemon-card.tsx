@@ -1,13 +1,14 @@
 import Link from "next/link";
 
 interface PokemonCardProps {
+  id: number;
   name: string;
 }
 
-const PokemonCard = ({ name }: PokemonCardProps) => {
+const PokemonCard = ({ id, name }: PokemonCardProps) => {
   return (
     <Link
-      href={name}
+      href={`/pokemon/${id}`}
       className="group rounded-lg border border-transparent m-3 px-5 py-4 transition-colors dark:border-gray-500 hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
       key={name + "Card"}
     >
