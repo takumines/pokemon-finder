@@ -41,7 +41,7 @@ const PokemonPage = async ({
               <h3 className="p-2 w-2/4">
                 {statName}: {statValue}
               </h3>
-              <Progress className="w-2/4 m-auto" value={statValue} />
+              <Progress className="w-2/4 m-auto " value={statValue} />
             </div>
           );
         })}

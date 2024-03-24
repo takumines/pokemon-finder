@@ -43,7 +43,7 @@ const PokemonCard = ({ id, name }: PokemonCardProps) => {
       ) : (
         <Spinner className="mx-auto" />
       )}
-      <h2 className={`text-2xl font-semibold`}>
+      <h2 className="text-2xl font-semibold text-center">
         {name.charAt(0).toUpperCase() + name.slice(1)}
       </h2>
     </Link>
