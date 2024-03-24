@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="ja" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="dark">
+        <ThemeProvider attribute="class" defaultTheme="white">
           <main className="flex min-h-screen flex-col items-center p-4 md:p-24">
             <div className="z-10 max-w-5xl w-full items-center justify-between text-sm lg:flex">
               <Link href="/">
