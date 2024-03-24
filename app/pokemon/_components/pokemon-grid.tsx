@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Label } from "@/app/components/ui/label";
 import { Input } from "@/app/components/ui/input";
-import PokemonCard from "@/app/components/pokemon-card";
+import PokemonCard from "@/app/pokemon/_components/pokemon-card";
 import { NamedAPIResource } from "pokenode-ts";
 import { extractIdFromUrl } from "@/app/_lib/utils";
 
