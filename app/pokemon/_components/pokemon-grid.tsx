@@ -31,7 +31,7 @@ const PokemonGrid = ({ pokemonList }: { pokemonList: NamedAPIResource[] }) => {
         </div>
         <h3 className="text-3xl pt-12 pb-6 text-center">Pokemon Collection</h3>
       </div>
-      <div className="mb-32 grid grid-cols-3 text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
+      <div className="mb-32 grid md:grid-cols-2 text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
         {filteredPokemonList.map((pokemon) => {
           const id = extractIdFromUrl(pokemon.url);
           return (
