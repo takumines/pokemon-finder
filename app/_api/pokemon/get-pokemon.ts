@@ -3,9 +3,9 @@ import { NamedAPIResourceList, Pokemon } from "pokenode-ts";
 import { ResponseError } from "@/app/_api/error/response-error";
 import { handlerError } from "@/app/_api/error/handler-error";
 
-export const getPokemonList = async () => {
+export const getPokemonList = async (offset: number = 0) => {
   const res = await pokemonApi(
-    "https://pokeapi.co/api/v2/pokemon?limit=151&offset=0",
+    `https://pokeapi.co/api/v2/pokemon?limit=20&offset=${offset}`,
   );
   const data: NamedAPIResourceList = await res.json();
 
