@@ -9,6 +9,7 @@ const PokemonDetailNotFound = () => {
         width={200}
         height={200}
         className="mx-auto"
+        priority
       />
       <h1 className="text-[32px] mt-8 text-center">Pokemon not found</h1>
     </div>

@@ -9,9 +9,10 @@ const PokemonImage = ({ image, name }: { image: string; name: string }) => {
       alt={`picture of ${name}`}
       priority
       fill
+      sizes="(min-width: 1200px) 50vw, 100vw"
       style={{ objectFit: "contain" }}
       className="transition-opacity opacity-0 duration-[2s]"
-      onLoadingComplete={(image) => image.classList.remove("opacity-0")}
+      onLoad={(e) => e.currentTarget.classList.remove("opacity-0")}
     />
   );
 };
