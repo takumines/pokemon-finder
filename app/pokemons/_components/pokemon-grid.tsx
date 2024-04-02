@@ -30,24 +30,26 @@ const PokemonGrid = () => {
   };
 
   return (
-    <>
-      <div>
-        <h3 className="text-2xl py-6 text-center">Search For Your Pokemon!</h3>
-        <div className="grid w-full max-w-sm items-center gap-1.5">
-          <Label htmlFor="pokemonName">Pokemon Name</Label>
-          <Input
-            placeholder="Mew"
-            autoComplete="off"
-            onChange={(e) => setSearchText(e.target.value)}
-            type="text"
-            value={searchText}
-            id="pokemonName"
-          />
-        </div>
-        <h3 className="text-3xl pt-12 pb-6 text-center">Pokemon Collection</h3>
+    <div className="w-full items-center">
+      <h3 className="text-2xl py-6 text-center">Search For Your Pokemon!</h3>
+      <div className="grid w-full max-w-sm items-center gap-1.5 mx-auto">
+        <Label htmlFor="pokemonName">Pokemon Name</Label>
+        <Input
+          placeholder="Mew"
+          autoComplete="off"
+          onChange={(e) => setSearchText(e.target.value)}
+          type="text"
+          value={searchText}
+          id="pokemonName"
+        />
       </div>
-      <InfiniteScroll loadMore={loadMore} hasMore={hasMoreScroll}>
-        <div className="mb-32 gap-3 grid md:grid-cols-2 text-center lg:mb-0 lg:grid-cols-5 lg:text-left">
+      <h3 className="text-3xl pt-12 pb-6 text-center">Pokemon Collection</h3>
+      <InfiniteScroll
+        loadMore={loadMore}
+        hasMore={hasMoreScroll}
+        className="mx-24 md:mx-0"
+      >
+        <div className="mb-32 sm:min-w-fit sm:mx-auto gap-3 grid md:grid-cols-2 text-center lg:mb-0 lg:grid-cols-5 lg:text-left">
           {filteredPokemonList.map((pokemon) => {
             const id = extractIdFromUrl(pokemon.url);
             return (
@@ -58,7 +60,7 @@ const PokemonGrid = () => {
           })}
         </div>
       </InfiniteScroll>
-    </>
+    </div>
   );
 };
 

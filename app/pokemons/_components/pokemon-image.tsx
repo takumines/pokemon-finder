@@ -19,7 +19,7 @@ const PokemonImage = (props: PokemonImageProps) => {
       width={width}
       height={height}
       style={{ objectFit: "contain" }}
-      className="transition-opacity opacity-0 duration-[2s]"
+      className="transition-opacity opacity-0 duration-[2s] mx-auto"
       onLoad={(e) => e.currentTarget.classList.remove("opacity-0")}
     />
   );
