@@ -45,9 +45,9 @@ const PokemonGrid = () => {
       <InfiniteScroll
         loadMore={loadMore}
         hasMore={hasMoreScroll}
-        className="mx-24 md:mx-0"
+        className="mx-4 md:mx-0"
       >
-        <div className="mb-32 sm:min-w-fit sm:mx-auto gap-3 grid md:grid-cols-2 text-center lg:mb-0 lg:grid-cols-5 lg:text-left">
+        <div className="mb-32 sm:min-w-fit sm:mx-auto gap-3 grid grid-cols-2 text-center lg:mb-0 lg:grid-cols-5 lg:text-left">
           {filteredPokemonList.map((pokemon) => {
             return <PokemonCard pokemon={pokemon} key={pokemon.name} />;
           })}
