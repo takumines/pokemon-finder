@@ -27,21 +27,20 @@ const PokemonPage = async ({
         {image && <PokemonImage image={image} name={name} />}
       </div>
       <h3>Weight: {pokemon.weight}</h3>
-      <div className="flex-col">
+      <div className="flex-col w-full sm:w-fit">
         {pokemon.stats.map((pokemonStat) => {
           const statName = pokemonStat.stat.name;
           const statValue = pokemonStat.base_stat;
 
           return (
             <div
-              className="flex items-stretch"
-              style={{ width: "500px" }}
+              className="sm:flex items-stretch w-full sm:w-[500px]"
               key={statName}
             >
-              <h3 className="p-2 w-2/4">
+              <h3 className="p-2 text-center sm:text-left sm:w-2/4">
                 {statName}: {statValue}
               </h3>
-              <Progress className="w-2/4 m-auto " value={statValue} />
+              <Progress className="w-2/3 sm:w-2/4 m-auto " value={statValue} />
             </div>
           );
         })}
