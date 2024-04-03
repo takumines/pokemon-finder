@@ -20,15 +20,16 @@ export const getPokemonList = async (offset: number = 0) => {
     );
     const data: NamedAPIResourceList = await res.json();
 
+    // ポケモンの画像は別APIから取得する必要があるので、それぞれのポケモンの詳細情報を取得する
     const pokemonList: Pokemon[] = await Promise.all(
       data.results.map(async (result) => {
         const id = extractIdFromUrl(result.url);
         if (!id) throw new Error("Pokemon ID not found");
         const pokemon = await getPokemonById(id);
-
         const imageUrl =
           pokemon?.sprites.other?.["official-artwork"].front_default ||
           "pokemons-not-found.png";
+
         return {
           ...result,
           id,
