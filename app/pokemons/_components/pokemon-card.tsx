@@ -1,27 +1,12 @@
 "use client";
 import Link from "next/link";
-import { getPokemonById } from "@/app/_api/pokemon/get-pokemon";
+import { Pokemon } from "@/app/_api/pokemon/get-pokemon";
 import { Suspense } from "react";
 import PokemonImage from "@/app/pokemons/_components/pokemon-image";
 import Spinner from "@/app/components/element/spinner";
 
-interface PokemonCardProps {
-  id: number;
-  name: string;
-}
-
-const PokemonCardImage = async ({ id, name }: PokemonCardProps) => {
-  const pokemon = await getPokemonById(id);
-  const pokemonImage = pokemon?.sprites.other
-    ? pokemon.sprites.other["official-artwork"].front_default
-    : null;
-
-  const image = pokemonImage ? pokemonImage : "pokemons-not-found.png";
-
-  return <PokemonImage image={image} name={name} />;
-};
-
-const PokemonCard = ({ id, name }: PokemonCardProps) => {
+const PokemonCard = ({ pokemon }: { pokemon: Pokemon }) => {
+  const { id, name, imageUrl } = pokemon;
   return (
     <Link
       href={`/pokemons/${id}`}
@@ -33,7 +18,7 @@ const PokemonCard = ({ id, name }: PokemonCardProps) => {
       key={name + "Card"}
     >
       <Suspense fallback={<Spinner className="mx-auto" />}>
-        <PokemonCardImage id={id} name={name} />
+        <PokemonImage image={imageUrl} name={name} />
       </Suspense>
       <h2 className="text-2xl font-semibold text-center">
         {name.charAt(0).toUpperCase() + name.slice(1)}

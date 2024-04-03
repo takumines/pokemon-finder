@@ -4,14 +4,12 @@ import { useState } from "react";
 import { Label } from "@/app/components/ui/label";
 import { Input } from "@/app/components/ui/input";
 import PokemonCard from "@/app/pokemons/_components/pokemon-card";
-import { NamedAPIResource } from "pokenode-ts";
-import { extractIdFromUrl } from "@/app/_lib/utils";
-import { getPokemonList } from "@/app/_api/pokemon/get-pokemon";
+import { getPokemonList, Pokemon } from "@/app/_api/pokemon/get-pokemon";
 import InfiniteScroll from "react-infinite-scroller";
 
 const PokemonGrid = () => {
   const [searchText, setSearchText] = useState("");
-  const [pokemonList, setPokemonList] = useState<NamedAPIResource[]>([]);
+  const [pokemonList, setPokemonList] = useState<Pokemon[]>([]);
   const [hasMoreScroll, setHasMoreScroll] = useState(true);
 
   const filteredPokemonList = pokemonList.filter((pokemon) =>
@@ -21,7 +19,7 @@ const PokemonGrid = () => {
   const loadMore = async () => {
     const res = await getPokemonList(pokemonList.length);
     // 読み込むデータが存在しない場合、
-    if (res.length < 1) {
+    if (!res || res.length < 1) {
       setHasMoreScroll(false);
       return;
     }
@@ -51,12 +49,7 @@ const PokemonGrid = () => {
       >
         <div className="mb-32 sm:min-w-fit sm:mx-auto gap-3 grid md:grid-cols-2 text-center lg:mb-0 lg:grid-cols-5 lg:text-left">
           {filteredPokemonList.map((pokemon) => {
-            const id = extractIdFromUrl(pokemon.url);
-            return (
-              id && (
-                <PokemonCard id={id} name={pokemon.name} key={pokemon.name} />
-              )
-            );
+            return <PokemonCard pokemon={pokemon} key={pokemon.name} />;
           })}
         </div>
       </InfiniteScroll>
