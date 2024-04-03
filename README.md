@@ -9,6 +9,3 @@ yarn
 
 yarn dev
 ```
-
-### Demo　　
-https://pokemon-finder-ashy.vercel.app/
