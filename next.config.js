@@ -8,15 +8,6 @@ const nextConfig = {
       },
     ],
   },
-  redirects: async () => {
-    return [
-      {
-        source: "/",
-        destination: "/pokemons",
-        permanent: true,
-      },
-    ];
-  },
 };
 
 module.exports = nextConfig;
